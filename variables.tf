@@ -28,7 +28,7 @@ variable "nodegroup_min_size" {
 
 variable "nodegroup_disk_size" {
   type = string
-  default = "nodegroup_disk_size"
+  default = "0.2"
 }
 
 variable "private_subnet_id" {
@@ -40,5 +40,17 @@ variable "private_subnet_name" {
 }
 
 variable "cluster_name" {
+  type = string
+}
+
+variable "dns_prefix" {
+  type = string
+}
+
+variable "service_principal_id" {
+  type = string
+}
+
+variable "service_principal_secret" {
   type = string
 }
