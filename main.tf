@@ -4,6 +4,7 @@ provider "azurerm" {
 
 locals {
   cluster_name = "${var.cluster_name}-${var.env_name}"
+  pool_name = "sample-pool"
 }
 
 #resource "azurerm_network_security_group" "ms-cluster" {
@@ -39,7 +40,7 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
   }
 
   default_node_pool {
-    name                  = azurerm_kubernetes_cluster.ms-up-running.name
+    name                  = local.pool_name
     vm_size               = var.nodegroup_size # Standard_B2s
     max_pods              = var.nodegroup_max_pod_size
     max_count             = var.nodegroup_max_size
