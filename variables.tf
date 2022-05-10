@@ -1,5 +1,5 @@
 variable "env_name" {
-  type = string
+  type    = string
   default = "australiaeast"
 }
 
@@ -8,7 +8,7 @@ variable "resource_group_name" {
 }
 
 variable "nodegroup_size" {
-  type = string
+  type    = string
   default = "Standard_B2s"
 }
 
@@ -17,17 +17,17 @@ variable "nodegroup_max_pod_size" {
 }
 
 variable "nodegroup_max_size" {
-  type = number
+  type    = number
   default = 1
 }
 
 variable "nodegroup_min_size" {
-  type = number
+  type    = number
   default = 1
 }
 
 variable "nodegroup_disk_size" {
-  type = string
+  type    = string
   default = "0.2"
 }
 
@@ -48,11 +48,11 @@ variable "dns_prefix" {
 }
 
 variable "service_principal_id" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "service_principal_secret" {
-  type = string
+  type      = string
   sensitive = true
 }

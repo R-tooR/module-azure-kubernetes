@@ -31,7 +31,7 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
   location            = var.env_name # australiaeast
   name                = local.cluster_name
   resource_group_name = var.resource_group_name
-  dns_prefix = var.dns_prefix
+  dns_prefix          = var.dns_prefix
 
   service_principal {
     client_id     = var.service_principal_id
@@ -39,15 +39,15 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
   }
 
   default_node_pool {
-    name    = azurerm_kubernetes_cluster.ms-up-running.name
-    vm_size = var.nodegroup_size # Standard_B2s
-    max_pods = var.nodegroup_max_pod_size
-    max_count = var.nodegroup_max_size
-    min_count = var.nodegroup_min_size
-    type = "VirtualMachineScaleSets"
-    os_disk_size_gb = var.nodegroup_disk_size # osDiskSizeGB
+    name                  = azurerm_kubernetes_cluster.ms-up-running.name
+    vm_size               = var.nodegroup_size # Standard_B2s
+    max_pods              = var.nodegroup_max_pod_size
+    max_count             = var.nodegroup_max_size
+    min_count             = var.nodegroup_min_size
+    type                  = "VirtualMachineScaleSets"
+    os_disk_size_gb       = var.nodegroup_disk_size # osDiskSizeGB
     enable_node_public_ip = true
-    vnet_subnet_id = var.private_subnet_id # prywatna sieć
+    vnet_subnet_id        = var.private_subnet_id # prywatna sieć
 
   }
 
@@ -55,7 +55,7 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
 resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
-  content = <<KUBECONFIG_END
+  content  = <<KUBECONFIG_END
 apiVersion: v1
 clusters:
 - cluster:
