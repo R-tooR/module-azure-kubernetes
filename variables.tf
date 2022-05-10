@@ -49,8 +49,10 @@ variable "dns_prefix" {
 
 variable "service_principal_id" {
   type = string
+  sensitive = true
 }
 
 variable "service_principal_secret" {
   type = string
+  sensitive = true
 }
