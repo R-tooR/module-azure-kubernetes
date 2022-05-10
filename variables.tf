@@ -1,4 +1,4 @@
-variable "env_name" {
+variable "azure_region" {
   type    = string
   default = "australiaeast"
 }

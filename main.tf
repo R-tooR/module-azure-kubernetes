@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 locals {
-  cluster_name = "${var.cluster_name}-${var.env_name}"
+  cluster_name = "${var.cluster_name}-${var.azure_region}"
   pool_name = "mspool"
 }
 
@@ -29,7 +29,7 @@ locals {
 
 resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
-  location            = var.env_name # australiaeast
+  location            = var.azure_region # australiaeast
   name                = local.cluster_name
   resource_group_name = var.resource_group_name
   dns_prefix          = var.dns_prefix
