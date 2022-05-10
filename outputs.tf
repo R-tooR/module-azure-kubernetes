@@ -11,5 +11,5 @@ output "aks_cluster_endpoint" {
 }
 
 output "aks_cluster_nodegroup_id" {
-  value = azurerm_kubernetes_cluster.ms-up-running.default_node_pool.name
+  value = azurerm_kubernetes_cluster.ms-up-running.default_node_pool[0].name
 }
