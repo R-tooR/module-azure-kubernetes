@@ -4,7 +4,7 @@ provider "azurerm" {
 
 locals {
   cluster_name = "${var.cluster_name}-${var.env_name}"
-  pool_name = "sample-pool"
+  pool_name = "mspool"
 }
 
 #resource "azurerm_network_security_group" "ms-cluster" {
