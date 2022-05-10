@@ -4,7 +4,7 @@ provider "azurerm" {
 
 locals {
   cluster_name = "${var.cluster_name}-${var.azure_region}"
-  pool_name = "mspool"
+  pool_name    = "mspool"
 }
 
 #resource "azurerm_network_security_group" "ms-cluster" {
@@ -49,7 +49,7 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
     os_disk_size_gb       = var.nodegroup_disk_size # osDiskSizeGB
     enable_node_public_ip = true
     vnet_subnet_id        = var.private_subnet_id # prywatna sieć
-
+    enable_auto_scaling   = true
   }
 
 }
