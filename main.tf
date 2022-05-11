@@ -52,6 +52,10 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
     enable_auto_scaling   = true
   }
 
+  network_profile {
+    network_plugin = "azure"
+    outbound_type = "managedNATGateway"
+  }
 }
 
 resource "local_file" "kubeconfig" {
