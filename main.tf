@@ -54,7 +54,7 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
   network_profile {
     network_plugin = "azure"
-    outbound_type = "managedNATGateway"
+    outbound_type = "userAssignedNATGateway"
   }
 }
 
