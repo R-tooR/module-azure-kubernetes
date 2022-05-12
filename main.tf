@@ -25,10 +25,10 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
   resource_group_name = var.resource_group_name
   dns_prefix          = var.dns_prefix
 
-  service_principal {
-    client_id     = var.service_principal_id
-    client_secret = var.service_principal_secret
-  }
+#  service_principal {
+#    client_id     = var.service_principal_id
+#    client_secret = var.service_principal_secret
+#  }
 
   default_node_pool {
     name                  = local.pool_name

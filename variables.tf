@@ -47,12 +47,12 @@ variable "dns_prefix" {
   type = string
 }
 
-variable "service_principal_id" {
-  type      = string
-  sensitive = true
-}
-
-variable "service_principal_secret" {
-  type      = string
-  sensitive = true
-}
+#variable "service_principal_id" {
+#  type      = string
+#  sensitive = true
+#}
+#
+#variable "service_principal_secret" {
+#  type      = string
+#  sensitive = true
+#}
