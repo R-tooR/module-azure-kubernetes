@@ -29,6 +29,9 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
 #    client_id     = var.service_principal_id
 #    client_secret = var.service_principal_secret
 #  }
+  identity {
+    type = "SystemAssigned"
+  }
 
   default_node_pool {
     name                  = local.pool_name
