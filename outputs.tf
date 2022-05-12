@@ -11,7 +11,7 @@ output "client_certificate" {
 }
 
 output "aks_cluster_endpoint" {
-  value = azurerm_kubernetes_cluster.ms-up-running.dns_prefix
+  value = azurerm_kubernetes_cluster.ms-up-running.kube_config.0.host
 }
 
 output "aks_cluster_nodegroup_id" {

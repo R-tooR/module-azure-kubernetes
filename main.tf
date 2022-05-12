@@ -54,21 +54,22 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
 resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
-  content  = <<KUBECONFIG_END
-apiVersion: v1
-clusters:
-- cluster:
-    "certificate-authority-data: >
-    ${azurerm_kubernetes_cluster.ms-up-running.kube_config.0.client_certificate}"
-    server: ${azurerm_kubernetes_cluster.ms-up-running.dns_prefix}
-  name: ${azurerm_kubernetes_cluster.ms-up-running.name}
-contexts:
-- context:
-    cluster: ${azurerm_kubernetes_cluster.ms-up-running.name}
-    user: ${azurerm_kubernetes_cluster.ms-up-running.name}
-  name: ${azurerm_kubernetes_cluster.ms-up-running.name}
-current-context: ${azurerm_kubernetes_cluster.ms-up-running.name}
-kind: Config
-preferences: {}
-  KUBECONFIG_END
+  content = azurerm_kubernetes_cluster.ms-up-running.kube_config_raw
+#  content  = <<KUBECONFIG_END
+#apiVersion: v1
+#clusters:
+#- cluster:
+#    "certificate-authority-data: >
+#    ${azurerm_kubernetes_cluster.ms-up-running.kube_config.0.client_certificate}"
+#    server: ${azurerm_kubernetes_cluster.ms-up-running.dns_prefix}
+#  name: ${azurerm_kubernetes_cluster.ms-up-running.name}
+#contexts:
+#- context:
+#    cluster: ${azurerm_kubernetes_cluster.ms-up-running.name}
+#    user: ${azurerm_kubernetes_cluster.ms-up-running.name}
+#  name: ${azurerm_kubernetes_cluster.ms-up-running.name}
+#current-context: ${azurerm_kubernetes_cluster.ms-up-running.name}
+#kind: Config
+#preferences: {}
+#  KUBECONFIG_END
 }
