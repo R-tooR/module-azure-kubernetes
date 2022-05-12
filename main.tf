@@ -7,6 +7,16 @@ locals {
   pool_name    = "mspool"
 }
 
+resource "azurerm_resource_group" "flight-reservation-app" {
+  name     = "flight-reservation-app"
+  location = var.azure_region
+}
+#
+#resource "time_sleep" "resource-group" {
+#  create_duration = "300s"
+#
+#  depends_on = [azurerm_resource_group.flight-reservation-app]
+#}
 
 resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
@@ -35,6 +45,8 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
   network_profile {
     network_plugin = "kubenet"
   }
+
+  depends_on = [azurerm_resource_group.flight-reservation-app]
 }
 
 resource "local_file" "kubeconfig" {
