@@ -7,6 +7,11 @@ locals {
   pool_name    = "mspool"
 }
 
+resource "azurerm_resource_group" "flight-reservation-app" {
+  name     = "flight-reservation-app"
+  location = var.azure_region
+}
+
 resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
   location            = var.azure_region
