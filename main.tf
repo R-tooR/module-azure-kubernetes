@@ -7,29 +7,9 @@ locals {
   pool_name    = "mspool"
 }
 
-#resource "azurerm_network_security_group" "ms-cluster" {
-#  location            = ""
-#  name                = ""
-#  resource_group_name = ""
-#
-#  security_rule {
-#    name                       = "test123"
-#    priority                   = 100
-#    direction                  = "Inbound"
-#    access                     = "Allow"
-#    protocol                   = "Tcp"
-#    source_port_range          = "*"
-#    destination_port_range     = "*"
-#    source_address_prefix      = "*"
-#    destination_address_prefix = "*"
-#  }
-#
-#}
-
-
 resource "azurerm_kubernetes_cluster" "ms-up-running" {
 
-  location            = var.azure_region # australiaeast
+  location            = var.azure_region
   name                = local.cluster_name
   resource_group_name = var.resource_group_name
   dns_prefix          = var.dns_prefix
@@ -47,14 +27,12 @@ resource "azurerm_kubernetes_cluster" "ms-up-running" {
     min_count             = var.nodegroup_min_size
     type                  = "VirtualMachineScaleSets"
     os_disk_size_gb       = var.nodegroup_disk_size # osDiskSizeGB
-    enable_node_public_ip = true
-    vnet_subnet_id        = var.private_subnet_id # prywatna sieć
+#    enable_node_public_ip = true
     enable_auto_scaling   = true
   }
 
   network_profile {
-    network_plugin = "azure"
-    outbound_type = "userAssignedNATGateway"
+    network_plugin = "kubenet"
   }
 }
 

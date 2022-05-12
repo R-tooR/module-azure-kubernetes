@@ -1,4 +1,8 @@
 output "kubernetes_cluster_name" {
+  value = azurerm_kubernetes_cluster.ms-up-running.name
+}
+
+output "kubernetes_cluster_id" {
   value = azurerm_kubernetes_cluster.ms-up-running.id
 }
 

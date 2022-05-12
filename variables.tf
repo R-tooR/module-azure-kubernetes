@@ -31,13 +31,13 @@ variable "nodegroup_disk_size" {
   default = "0.2"
 }
 
-variable "private_subnet_id" {
-  type = string
-}
-
-variable "private_subnet_name" {
-  type = string
-}
+#variable "private_subnet_id" {
+#  type = string
+#}
+#
+#variable "private_subnet_name" {
+#  type = string
+#}
 
 variable "cluster_name" {
   type = string
